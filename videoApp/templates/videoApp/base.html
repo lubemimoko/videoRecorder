@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    <title>Zummit Recording</title>
+    <link rel="stylesheet" href="{% static 'videoApp/css/base.css' %}">
+</head>
+
+<body>
+    <header>
+        <h1><a href="{% url 'home' %}">Home</a> <a href="{% url 'recordings' %}">Recordings</a></h1>
+    </header>
+    
+    {% block body %}
+    {% endblock body %}
+    
+    {% block js %}
+        {% csrf_token %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script> 
+            let url = "{% url 'upload'%}"; 
+            let csrf = $("input[name='csrfmiddlewaretoken']")[0].value;
+            console.log(csrf);
+        </script>
+        
+        <script src="{% static 'videoApp/js/recorder2.js'%}"></script>
+        <script src="{% static 'videoApp/js/upload.js'%}"></script>
+    {% endblock js %}
+</body>
+
+</html>

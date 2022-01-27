@@ -1,0 +1,18 @@
+{% extends 'videoApp/base.html' %}
+{% load static %}
+{% block body %}	
+	<!--button for 'start recording'-->
+	
+	<h3 id="successmessage">Record Stopped and Uploaded Successfully</h3>
+	<h3 id="errormessage">An Error Occured while Uploading, Try Again!</h3>
+	<p>
+	<button id="btnStart" disabled>START RECORDING</button>
+	<button id="btnStop" disabled>STOP RECORDING</button>
+	<!--button for 'stop recording'-->
+	</p>
+	
+	<img src ="{% static 'videoApp/images/rec.png' %}" id="img"  style="display:none" >
+	<!--for play the video-->
+	<video id="video" width="40%" controls muted ></video>
+	<video id="video2" width="40%"  controls style="display:none"></video>
+{% endblock body %}

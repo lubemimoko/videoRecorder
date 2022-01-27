@@ -1,0 +1,34 @@
+{% extends 'videoApp/base.html' %}
+
+{% block body %}	
+	<h1>ALL RECORDINGS</h1>
+	<table width="70%">
+		<tr>
+			<th colspan="4">Number Of Recording: {{number}}</th>
+		</tr>
+		<tr>
+			<th>SN</th>
+			<th>File</th>
+			<th>Date Added</th>
+			<th>DELETE</th>
+		</tr>
+		{% for recording in recordings %}
+			<tr>
+			<td>{{forloop.counter}}</td>
+			<td><video id="video" width="320" height="240" src={{recording.file.url}} controls></video></td>
+			<td>{{recording.datetime}}</td>
+			<td><a href="{% url 'remove' id=recording.id %}"> REMOVE </a> </td>
+			</tr>
+		{% endfor %}
+	</table>
+
+{% endblock body %}
+
+
+
+{% block js %}
+{% endblock js %}
+
+
+
+
